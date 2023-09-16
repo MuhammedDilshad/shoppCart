@@ -1,0 +1,71 @@
+<section class="vh-100">
+  <div class="container">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <img
+          src="https://images.unsplash.com/photo-1562183241-b937e95585b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1530&q=80"
+          class="img-fluid" alt="Phone image">
+      </div>
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <form action="/admin/login" method="post" id="adminlogin">
+          <h4 class="fw-semibold ">Admin Login</h4>
+          <!-- Name input -->
+          <div class="form-outline mb-4">
+            <label class="fw-semibold" for="form1Example13">Name</label>
+            <input type="text" id="form1Example13" name="name" class="form-control form-control-lg" />
+          </div>
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <label class="fw-semibold" for="form1Example13">Email address</label>
+            <input type="email" id="form1Example13" name="email" class="form-control form-control-lg" />
+          </div>
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <label class="fw-semibold" for="form1Example23">Password</label>
+            <input type="password" id="form1Example23" name="password" class="form-control form-control-lg" />
+          </div>
+          <div class="d-flex justify-content-around align-items-center mb-4">
+
+            <a href="#!" class="fw-semibold">Forgot password?</a>
+          </div>
+          {{#if adminLoggErr}}
+          <p class="text-danger">Invalid email or password</p>
+          {{/if}}
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-success btn-lg btn-block">Log in</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.js"></script>
+<style>
+  .error{
+    color: red;
+  }
+</style>
+<script>
+  $("#adminlogin").validate({
+    rules: {
+      name: {
+        required: true
+      },
+      email: {
+        email: true
+      },
+      password: {
+        required: true
+      }
+    },
+    messages: {
+      name: {
+        required: "required"
+
+      }
+    }
+
+  }) 
+</script>

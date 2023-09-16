@@ -1,0 +1,81 @@
+<section class="container-p-y container-xxl flex-grow-1">
+
+    <div class="card">
+        <div class="content p-4">
+            <a type="button" class="btn btn-success" href="/admin/addCoupon"><i class="fas fa-plus"></i> Add
+                Coupon</a>
+            <div class="actionpane  text-center">
+                <button class="btn btn-default ">Coupon Management</button>
+            </div>
+        </div>
+
+        <div class="table-responsive text-nowrap p-4">
+            <table id="productTable" class="table p-3" style="width:100%">
+                <thead>
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Availeble Coupon</th>
+                         <th scope="col">Coupon Upto</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each coupon}}
+                    <tr>
+                        <th scope="row">{{inc1 @index}}</th>
+                        <td>{{this.CouponCode}}</td>
+                        <td>{{this.CouponUpto}}%</td>
+                        <td>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn rounded-pill btn-icon btn-outline-danger"
+                                data-toggle="modal" data-target="#exampleModal{{this._id}}"> <span
+                                    class="tf-icons bx bx-trash"></span>
+                                {{!-- Delete --}}
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal{{this._id}}" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body" style="color:red">
+                                            Are You Sure To Delete
+                                            coupon
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-success"
+                                                data-dismiss="modal">Close</button>
+                                            <a href="/admin/deleteCoupon/{{this._id}}">
+                                                <button type="button"
+                                                    class="btn rounded-pill btn-icon btn-outline-danger">
+                                                    <span class="tf-icons bx bx-trash"></span>
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+<script>
+    $(document).ready(function () {
+        $('#user_table').wrap('<div id="hide" style="display:none"/>');
+        $('#hide').css('display', 'block');
+    });
+    var table = $('#productTable').DataTable();
+</script>

@@ -1,0 +1,99 @@
+<div class="row">
+    <div class="col-md-6 m-auto">
+        <div class="container mt-5 pl-5">
+            <h2 class="text-center">Create A New Account</h2>
+            <form action="/signup" method="post" id="userSignup">
+                <div class="form-group">
+                    <label for="" class="fw-semibold">Name</label>
+                    <input type="text" class="form-control" name="Name" placeholder="enter Name">
+                </div>
+                <div class="form-group">
+                    <label for="" class="fw-semibold">Email Address</label>
+                    <input type="email" class="form-control" name="Email" placeholder="enter email">
+                </div>
+                <div class="form-outline">
+                    <label class="fw-semibold" for="typePhone">Number</label>
+                    <input type="tel" name="Number" class="form-control" placeholder="enter number" />
+
+                </div>
+                <div class="form-group">
+                    <label for="" class="fw-semibold">Password</label>
+                    <input type="Password" class="form-control" id="Password" name="Password" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label for="" class="fw-semibold">Conform Password</label>
+                    <input type="Password" class="form-control" name="ConfirmPassword"
+                        placeholder="Conform your Password">
+                </div>
+
+
+                <a href="/signup" class="fw-semibold">Already have an account</a>
+                <button type="submit" class="btn btn-success float-right">signup</button>
+                
+                
+             
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.js"></script>
+<style>
+    .error {
+        color: rgb(253, 5, 5);
+    }
+</style>
+<script>
+
+    $("#userSignup").validate({
+
+
+        rules: {
+            Name: {
+                required: true,
+                minlength: 5
+            },
+
+            Email: {
+                required: true,
+                Email: true
+            },
+
+            Number: {
+                required: true,
+                minlength: 10
+            },
+
+            Password: {
+                required: true,
+                minlength: 6,
+                maxlength: 10
+
+            },
+
+            ConfirmPassword: {
+                required: true,
+                equalTo: '#Password',
+                minlength: 6,
+                maxlength: 10
+            }
+
+
+        },
+        messages: {
+            Password: {
+                required: "the password is required"
+
+            },
+            ConfirmPassword: {
+                equalTo: "enter the same password"
+
+            },
+        }
+    })
+
+
+</script>

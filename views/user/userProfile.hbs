@@ -1,0 +1,145 @@
+<section style="background-color: #eee;">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-8 fw-semibold">
+        <div class="card mb-4">
+          <div class="d-flex justify-content-center">
+            <h3>Details</h3>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Full Name</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{user.Name}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Email</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{user.Email}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Phone</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{user.Number}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-center mb-2">
+              <a href="/logout"><button type="button" class="btn btn-primary">Logout</button></a>
+              <a href="/addBilingDetails"><button type="button" class="btn btn-primary">Add Biling details</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section style="background-color: #eee;">
+    <div id="address" class="container py-5">
+      <div class="row">
+        {{#each deatailes}}
+        <div class="col-lg-8 fw-semibold">
+          <div class="card mb-4">
+            <div class="d-flex justify-content-center">
+              <h3>Details</h3>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">First name</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{this.fname}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Last name</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{this.lname}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Address</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{this.address}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Phone</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{this.mobile}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Pincode</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{this.pincode}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="d-flex justify-content-center mb-2">
+                {{!-- <a href="/removeDetails/{{this._id}}"><button type="button" class="btn btn-primary">Remove</button></a> --}}
+              
+                <div class=" text-center mt-4">
+                  <button class="btn btn-danger"
+                    onclick="removeAddress('{{this._id}}')">Remove</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </section>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script>
+    function removeAddress(addressId) {
+      swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover this file!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+        .then((willDelete) => {
+          if (willDelete) {
+            $.ajax({
+              url: '/deleteFromAddress/'+addressId,
+              method: 'get',
+              success: (response) => {
+                console.log(response)
+                swal("Your Cart Item has been remved!", {
+                  icon: "success",
+                });
+                $("#address").load(location.href + " #address");
+              }
+            })
+          } else {
+            swal("Your Address is safe!");
+          }
+        });
+    }
+  </script>
+</section>

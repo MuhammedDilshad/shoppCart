@@ -1,0 +1,99 @@
+<div class="container">
+    <section class="pe-5 ps-5 text-center container-xxl position-relative bg-white d-flex p-0">
+        <div class="content p-2 d-flex justify-content-center mt-5">
+            <form class="form-horizontal " action="/admin/editCategory/{{category._id}}" method="post"
+                id="editCategory">
+
+
+                <!-- Form Name -->
+                <legend class="fw-semibold">Edit Category</legend>
+
+
+                <!-- Text input-->
+                <div class="form-group text-center">
+                    <label class="fw-semibold" for="product_name">Category Name</label>
+                    <div class="addInput table-bordered">
+                        <input id="product_name" name="categoryName" placeholder="Category Name"
+                            class="form-control input-md mt-2" type="text"
+                            value="{{this.category.categoryData.categoryName}}">
+
+                    </div>
+                </div>
+                {{#if errmess}}
+                <p class="text-danger">{{errmess}}</p>
+                {{/if}}
+
+                <!-- Small modal -->
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Submit
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body" style="color: red;">
+                               Do You Want To Update This Category
+                            </div>
+                            <div class="modal-footer">
+                                <div class="form-group mt-3">
+
+                                    {{!-- <div class="addInput">
+                                        <button id="singlebutton"
+                                            onclick="alert('Are you sure you want to update this Category')"
+                                            type="submit" class="btn btn-success">Submit</button>
+                                    </div> --}}
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Button -->
+                    {{!-- <div class="form-group mt-3">
+
+                        <div class="addInput">
+                            <button id="singlebutton" onclick="alert('Are you sure you want to update this Category')"
+                                type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </div> --}}
+            </form>
+        </div>
+    </section>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.js"></script>
+
+<script>
+    $("#editCategory").validate({
+        rules: {
+            categoryName: {
+                required: true
+            }
+        },
+        messages: {
+            categoryName: {
+                required: "CategoryName required"
+
+            }
+        }
+
+    }) 
+</script>
+<style>
+    @media (min-width: 989px) {
+
+        .addInput {
+            width: 500px;
+        }
+    }
+
+    @media (max-width: 988.98px) {
+        .addInput {
+            width: 100%;
+        }
+    }
+</style>

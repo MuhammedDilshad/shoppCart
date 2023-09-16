@@ -1,0 +1,80 @@
+<div class="container">
+    <section class="pe-5 ps-5 text-center container-xxl position-relative bg-white d-flex p-0">
+        <div class="content p-2 d-flex justify-content-center mt-5">
+
+            <form class="form-horizontal " action="/admin/addCoupon" method="post" id="addCoupon">
+                <!-- Form Name -->
+                <legend class="fw-semibold">Add Coupon</legend>
+                <!-- Text input-->
+                <div class="form-group text-center">
+                    <label class="fw-semibold" for="product_name">Coupon code</label>
+                    <div class="addInput table-bordered">
+                        <input id="product_name" name="CouponCode" placeholder="CouponCode"
+                            class="form-control input-md mt-2" type="text">
+                    </div>
+                </div>
+                <div class="form-group text-center">
+                    <label class="fw-semibold" for="product_name">Coupon Upto</label>
+                    <div class="addInput table-bordered">
+                        <input id="product_name" name="CouponUpto" placeholder="CouponUpto"
+                            class="form-control input-md mt-2" type="number">
+                    </div>
+                </div>
+                {{#if errmess}}
+                <p class="text-danger">{{errmess}}</p>
+                {{/if}}
+                <!-- Button -->
+                <div class="form-group mt-3">
+                    <div class="addInput">
+                        <button id="singlebutton" type="submit" class="btn btn-success">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.js"></script>
+
+<script>
+    $("#addCoupon").validate({
+        rules: {
+            CouponCode: {
+                required: true,
+                minlength: 10
+
+            },
+            CouponUpto: {
+                required: true
+            }
+        },
+        messages: {
+            CouponCode: {
+                required: "CouponCode required"
+
+            },
+            CouponUpto:{
+                required:'required'
+            }
+
+        }
+
+    }) 
+</script>
+
+<style>
+    @media (min-width: 989px) {
+
+        .addInput {
+            width: 500px;
+        }
+    }
+
+    @media (max-width: 988.98px) {
+        .addInput {
+            width: 100%;
+        }
+    }
+</style>

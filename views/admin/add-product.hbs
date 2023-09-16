@@ -1,0 +1,137 @@
+<section>
+  <div class="container">
+    <div class=" container row">
+      <div class="ml-5 col-md-6">
+        <h2 class="text-center">Add Products</h2>
+        <form action="/admin/add-product" method="post" id="addProduct" enctype="multipart/form-data">
+          <label for="">Brand</label>
+          <input type="text" name="name" class="form-control">
+          <div class="form-group">
+            <label class="control-label" for="product_categorie">PRODUCT CATEGORY</label>
+            <div class=" addInput">
+
+              <select id="product_categorie" name="product_categorie" class="form-control my-select selectpicker"
+                data-container="body">
+                <option disabled selected value>Select</option>
+                {{#each category}}
+                <option value="{{this.categoryData.categoryName}}">{{this.categoryData.categoryName}}</option>
+                {{/each}}
+              </select>
+
+            </div>
+          </div>
+
+          <div>
+            <label for="">Price</label>
+            <input type="tel" name="price" class="form-control">
+          </div>
+
+          <div>
+            <p>size</p>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" name="Size" type="checkbox" id="inlineCheckbox1" value="5" />
+              <label class="form-check-label" for="inlineCheckbox1">5</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" name="Size" type="checkbox" id="inlineCheckbox2" value="6" />
+              <label class="form-check-label" for="inlineCheckbox2">6</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" name="Size" type="checkbox" id="inlineCheckbox3" value="7" />
+              <label class="form-check-label" for="inlineCheckbox3">7</label>
+            </div>
+
+
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" name="Size" type="checkbox" id="inlineCheckbox1" value="8" />
+              <label class="form-check-label" for="inlineCheckbox1">8</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" name="Size" type="checkbox" id="inlineCheckbox2" value="9" />
+              <label class="form-check-label" for="inlineCheckbox2">9</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" name="Size" type="checkbox" id="inlineCheckbox3" value="10" />
+              <label class="form-check-label" for="inlineCheckbox3">10</label>
+            </div>
+          </div>
+
+          <div>
+            <label for="">Image</label>
+            <input type="file" name="Image" class="form-control">
+          </div>
+
+          <div>
+            <label for="">Image</label>
+            <input type="file" name="Image" class="form-control">
+          </div>
+
+          <div>
+            <label for="">Image</label>
+            <input type="file" name="Image" class="form-control">
+          </div>
+
+          <button type="submit" class="btn btn-success mt-4">Submit</button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.js"></script>
+
+<script>
+  $("#addProduct").validate({
+    rules: {
+      name: {
+        required: true,
+        minlength: 3
+      },
+      product_categorie: {
+        required: true,
+      },
+      price: {
+        required: true,
+        minlength: 3
+      },
+      Image: {
+        required: true,
+      },
+      Image: {
+        required: true,
+      },
+      Image: {
+        required: true,
+      }
+    },
+    messages: {
+      name: {
+        required: "this field is required"
+      },
+      product_categorie: {
+        required: "this field is required"
+      },
+      price: {
+        required: "this field is required"
+      },
+      Image: {
+        required: "this field is required"
+      },
+      Image: {
+        required: "this field is required"
+      },
+      Image: {
+        required: "this field is required"
+      }
+
+    }
+
+  }) 
+</script>

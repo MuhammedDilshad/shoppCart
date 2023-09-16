@@ -1,0 +1,253 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+</head>
+
+<body>
+
+	<div class="colorlib-loader"></div>
+
+	<div id="page">
+		<nav class="colorlib-nav" role="navigation">
+			<div class="sale">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-8 offset-sm-2 text-center">
+							<div class="row">
+								<div class="owl-carousel2">
+									<div class="item">
+										<div class="col">
+											<h3><a href="#">25% off (Almost) Everything! Use Code: Summer Sale</a></h3>
+										</div>
+									</div>
+									<div class="item">
+										<div class="col">
+											<h3><a href="#">Our biggest sale yet 50% off all summer shoes</a></h3>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<div class="colorlib-product">
+			<div class="container">
+				<div class="row row-pb-lg">
+					<div class="col-md-10 offset-md-1">
+						<div class="process-wrap">
+							<div class="process text-center active">
+								<p><span>01</span></p>
+								<h3>Shopping Cart</h3>
+							</div>
+							<div class="process text-center">
+								<p><span>02</span></p>
+								<h3>Checkout</h3>
+							</div>
+							<div class="process text-center">
+								<p><span>03</span></p>
+								<h3>Order Complete</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row row-pb-lg">
+					<div class="col-md-12">
+						<div class="product-name d-flex">
+							<div class="one-forth text-left px-4">
+								<span>Product Details</span>
+							</div>
+							<div class="one-eight text-center">
+								<span>Price</span>
+							</div>
+							<div class="one-eight text-center">
+								<span>Add to cart</span>
+							</div>
+							<div class="one-eight text-center">
+								<span>Remove</span>
+							</div>
+						</div>
+						{{#each products}}
+						<div id="rrr" class="product-cart d-flex">
+							<div class="one-forth">
+								<div class="product-img"
+									style="background-image: url(/product-images/{{this.product.Image.[0]}});">
+								</div>
+								<div class="display-tc">
+									<h3>{{this.product.productData.name}}</h3>
+								</div>
+							</div>
+							<div class="one-eight text-center">
+								<div class="display-tc">
+									<span class="price">${{this.product.productData.price}}</span>
+								</div>
+							</div>
+							<div class="one-eight text-center mt-4">
+								<p class=""><a href="/addingToCart/{{product._id}}"
+										class="btn btn-primary btn-addtocart"><i class="icon-shopping-cart"></i> Add
+										to Cart</a></p>
+							</div>
+							<div class="one-eight text-center mt-4">
+								<button class="btn btn-danger"
+									onclick="removeProduct('{{this._id}}','{{this.product._id}}')">Remove</button>
+							</div>
+						</div>
+						{{/each}}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-8 offset-sm-2 text-center colorlib-heading colorlib-heading-sm">
+						<h2>Shop more</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3 col-lg-3 mb-4 text-center">
+						<div class="product-entry border">
+							<a href="#" class="prod-img">
+								<img src="images/item-1.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
+							</a>
+							<div class="desc">
+								<h2><a href="#">Women's Boots Shoes Maca</a></h2>
+								<span class="price">$139.00</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-lg-3 mb-4 text-center">
+						<div class="product-entry border">
+							<a href="#" class="prod-img">
+								<img src="images/item-2.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
+							</a>
+							<div class="desc">
+								<h2><a href="#">Women's Minam Meaghan</a></h2>
+								<span class="price">$139.00</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-lg-3 mb-4 text-center">
+						<div class="product-entry border">
+							<a href="#" class="prod-img">
+								<img src="images/item-3.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
+							</a>
+							<div class="desc">
+								<h2><a href="#">Men's Taja Commissioner</a></h2>
+								<span class="price">$139.00</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-lg-3 mb-4 text-center">
+						<div class="product-entry border">
+							<a href="#" class="prod-img">
+								<img src="images/item-4.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
+							</a>
+							<div class="desc">
+								<h2><a href="#">Russ Men's Sneakers</a></h2>
+								<span class="price">$139.00</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer id="colorlib-footer" role="contentinfo">
+			<div class="container">
+				<div class="row row-pb-md">
+					<div class="col footer-col colorlib-widget">
+						<h4>About Footwear</h4>
+						<p>Even the all-powerful Pointing has no control about the blind texts it is an almost
+							unorthographic life</p>
+						<p>
+						<ul class="colorlib-social-icons">
+							<li><a href="#"><i class="icon-twitter"></i></a></li>
+							<li><a href="#"><i class="icon-facebook"></i></a></li>
+							<li><a href="#"><i class="icon-linkedin"></i></a></li>
+							<li><a href="#"><i class="icon-dribbble"></i></a></li>
+						</ul>
+						</p>
+					</div>
+					<div class="col footer-col colorlib-widget">
+						<h4>Customer Care</h4>
+						<p>
+						<ul class="colorlib-footer-links">
+							<li><a href="#">Contact</a></li>
+							<li><a href="#">Returns/Exchange</a></li>
+							<li><a href="#">Gift Voucher</a></li>
+							<li><a href="#">Wishlist</a></li>
+							<li><a href="#">Special</a></li>
+							<li><a href="#">Customer Services</a></li>
+							<li><a href="#">Site maps</a></li>
+						</ul>
+						</p>
+					</div>
+					<div class="col footer-col colorlib-widget">
+						<h4>Information</h4>
+						<p>
+						<ul class="colorlib-footer-links">
+							<li><a href="#">About us</a></li>
+							<li><a href="#">Delivery Information</a></li>
+							<li><a href="#">Privacy Policy</a></li>
+							<li><a href="#">Support</a></li>
+							<li><a href="#">Order Tracking</a></li>
+						</ul>
+						</p>
+					</div>
+
+					<div class="col footer-col">
+						<h4>News</h4>
+						<ul class="colorlib-footer-links">
+							<li><a href="blog.html">Blog</a></li>
+							<li><a href="#">Press</a></li>
+							<li><a href="#">Exhibitions</a></li>
+						</ul>
+					</div>
+
+					<div class="col footer-col">
+						<h4>Contact Information</h4>
+						<ul class="colorlib-footer-links">
+							<li>291 South 21th Street, <br> Suite 721 New York NY 10016</li>
+							<li><a href="tel://1234567920">+ 1235 2355 98</a></li>
+							<li><a href="mailto:info@yoursite.com">info@yoursite.com</a></li>
+							<li><a href="#">yoursite.com</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script>
+		function removeProduct(WishListId, proId) {
+			swal({
+				title: "Are you sure?",
+				text: "Once deleted, you will not be able to recover this imaginary file!",
+				icon: "warning",
+				buttons: true,
+				dangerMode: true,
+			})
+				.then((willDelete) => {
+					if (willDelete) {
+						$.ajax({
+							url: '/deleteFromWishList',
+							data: {
+								wishlist: WishListId,
+								product: proId
+							},
+							method: 'post',
+							success: (response) => {
+								swal("Poof! Your imaginary file has been deleted!", {
+									icon: "success",
+								});
+								$("#rrr").load(location.href + " #rrr");
+							}
+						})
+					} else {
+						swal("Your imaginary file is safe!");
+					}
+				})
+		}
+	</script>
+</body>
+
+</html>

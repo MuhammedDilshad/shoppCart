@@ -1,0 +1,53 @@
+
+<section class="container-p-y container-xxl flex-grow-1">
+
+    <div class="card">
+        <div class="content p-4">
+            <a type="button" class="btn btn-success" href="/admin/addCategory"><i class="fas fa-plus"></i> Add
+                Category</a>
+            <div class="actionpane  text-center">
+                <button class="btn btn-default ">Size Management</button>
+            </div>
+        </div>
+
+        <div class="table-responsive text-nowrap p-4">
+            <table id="productTable" class="table p-3" style="width:100%">
+                <thead>
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Size</th>
+                        {{!-- <th scope="col">Delete/Edit</th> --}}
+                    </tr>
+                </thead>
+                <tbody>
+                    {{!-- {{#each category}} --}}
+                    <tr>
+                        <th scope="row">{{inc1 @index}}</th>
+                        {{!-- <td>{{this.categoryData.categoryName}}</td> --}}
+                        {{!-- <td>
+                            <a href="/admin/editCategory/{{this._id}}">
+                                <button type="button" class="btn rounded-pill btn-icon btn-outline-primary">
+                                    <span class="tf-icons bx bx-edit"></span>
+                                </button>
+                            </a>
+
+                            <a href="/admin/deleteCategory/{{this._id}}">
+                                <button type="button" class="btn rounded-pill btn-icon btn-outline-danger" onclick="alert('Are you sure you want to add this Category')">
+                                    <span class="tf-icons bx bx-trash"></span>
+                                </button>
+                            </a>
+                        </td> --}}
+                    </tr>
+                    {{!-- {{/each}} --}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function () {
+        $('#user_table').wrap('<div id="hide" style="display:none"/>');
+        $('#hide').css('display', 'block');
+    });
+    var table = $('#productTable').DataTable();
+</script>

@@ -1,0 +1,48 @@
+<section class="container-p-y container-xxl flex-grow-1">
+    <div class="card">
+
+        <h5 class="card-header">All Products</h5>
+        <div class="table-responsive text-nowrap p-4">
+            <table id="productTable" class="table p-3" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Id</th>
+                        <th>Date</th>
+                        <th>status</th>
+                        <th>Update</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each orders}}
+                    <tr>
+                        <td>{{inc1 @index}}</td>
+                        <td>{{this.userId}} </td>
+                        <td>{{this.date}} </td>
+                        <td>{{this.status}} </td>
+                        <td><a href="/admin/orderEdit/{{this._id}}">
+                                <button type="button" class="btn rounded-pill btn-icon btn-outline-primary">
+                                    <span class="tf-icons bx bx-edit"></span>
+                                </button>
+                            </a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+<script>
+    $(document).ready(function () {
+        $('#productTable').wrap('<div id="productTable" style="display:none"/>');
+        $('#productTable').css('display', 'block');
+    });
+    var table = $('#productTable').DataTable();
+</script>

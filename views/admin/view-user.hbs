@@ -1,0 +1,47 @@
+<table id="dataTable" class="table table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Number</th>
+            <th>Block/UnBlock</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each users}}
+        <tr>
+            <td>{{inc1 @index}}</td>
+            <td>{{this._id}}</td>
+            <td>{{this.Name}}</td>
+            <td>{{this.Email}}</td>
+            <td>{{this.Number}}</td>
+            <td>
+                {{#if isBlocked}}
+                <a href="/admin/UnblockUser/{{this._id}}"><button>UnBlock</button></a>
+                {{else}}
+                <a <a href="/admin/BlockUser/{{this._id}}"><BUtton>Block</BUtton></a>
+                {{/if}}
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+
+<script>
+    $(document).ready(function () {
+
+
+        $('#dataTable').wrap('<div id="hide" style="display:none"/>');
+
+        $('#hide').css('display', 'block');
+    });
+
+
+    var table = $('#dataTable').DataTable();
+</script>

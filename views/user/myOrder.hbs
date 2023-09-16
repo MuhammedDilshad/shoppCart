@@ -1,0 +1,50 @@
+<section class="container-p-y container-xxl flex-grow-1">
+
+    <div class="card">
+
+        <h5 class="card-header">My Products</h5>
+
+        <div class="table-responsive text-nowrap p-4">
+            <table id="" class="table p-3" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Date</th>
+                        <th>Address</th>
+                        <th>Pincode</th>
+                        <th>Mobile</th>
+                        <th>Amount</th>
+                        <th>Payment</th>
+                        <th>Status</th>
+                        <th>View Product</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each orders}}
+                    <tr>
+                        <td>{{inc1 @index}}</td>
+                        <td>{{this.date}} </td>
+                        <td>{{deliveryDetails.address}} </td>
+                        <td>{{deliveryDetails.pincode}} </td>
+                        <td>{{deliveryDetails.mobile}} </td>
+                        <td>{{this.totalAmount}} </td>
+                        <td>{{this.paymentMethod}} </td>
+                        <td>{{this.status}} </td>
+                        <td>
+                            <a href="/viewOrderedProduct/{{this._id}}" class="btn btn-success">view product</a>
+                        </td>
+                    </tr>
+                    {{/each}}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function () {
+        $('#user_table').wrap('<div id="hide" style="display:none"/>');
+        $('#hide').css('display', 'block');
+    });
+    var table = $('#productTable').DataTable();
+</script>
