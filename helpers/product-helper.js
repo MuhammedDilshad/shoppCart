@@ -3,7 +3,6 @@ var collection = require("../config/connections");
 const async = require("hbs/lib/async");
 const { resolve, reject } = require("promise");
 const objectId = require("mongodb").ObjectId;
-
 module.exports = {
   // Addproduct: (productData, Image) => {
   //   productData.name = productData.name.toUpperCase();
